@@ -8,7 +8,7 @@ function valueFromCoinCounts(coinCounts) {
 function fromValueToCoins(value){
     let coinsList = [0,0,0,0]
     console.log("value = "+value)
-    //Her skal verdien, for eksempel 13, resultere i en liste [3,0,1,0] 3 enere, 0 femmere, 1 tier, 1 x 20kr;
+    //Her skal verdien, for eksempel 13, resultere i en liste [3,0,1,0] 3 enere, 0 femmere, 1 tier, 0 x 20kr;
     while(value != 0){
         if(value >= 20){
             coinsList[3] += 1;

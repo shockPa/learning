@@ -23,7 +23,7 @@ function updateView() {
             </div>
             <div>
                 <br>
-                 Du har kjøpt ${numberOfCokesPurchased} flasker cola, og fått ${pocketChange} tilbake ${numberOfCokesPurchased>4? ' og er i ferd med å få diabetes':'. '}
+                 Du har tatt ${numberOfCokesPurchased} flasker cola, og fått ${pocketChange} tilbake.
             </div>
             <div class="flexVertical">
                 <svg xmlns="http://www.w3.org/2000/svg" width="170" height="240" version="1.0">
@@ -38,14 +38,16 @@ function updateView() {
                     <button onclick="insertCoin(5)">Putte inn 5kr</button>
                     <button onclick="insertCoin(10)">Putte inn 10kr</button>
                     <button onclick="insertCoin(20)">Putte inn 20kr</button>
-                    <button onclick="returnCoins()">Angre</button>
-                    <button onclick="takeCoins()">Ta myntene</button>
+                    <button ${coinsInserted.reduce(function(a,b){return a+b;}) != 0 ? "":"disabled"} onclick="returnCoins()">Angre</button>
+                    <button ${coinsReturned.reduce(function(a,b){return a+b;}) != 0 ? "":"disabled"} onclick="takeCoins()">Ta myntene</button>
                     <button ${canBuyCoke() ? "":"disabled"} onclick="buyCoke()">Kjøpe cola</button>
                     <button ${isCokeInDelivery ? "":"disabled"} onclick="takeCoke()">Ta cola</button>
+                    <button ${canRefillCoke() ? "": "disabled"} onclick="fillCoke()">Fyll på Coke (${cokePurchasePrice}kr)</button>
                 </div>
             </div>
         </div>
     `;
+    
 }
 
 function getCoinsHtml(coinCounts) {

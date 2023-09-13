@@ -21,3 +21,4 @@ let isCokeInDelivery = false;
 let priceOfCoke = 25;
 let numberOfCokesPurchased = 0;
 let pocketChange = 0;
+let cokePurchasePrice = 5;

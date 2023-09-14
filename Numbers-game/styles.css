@@ -1,0 +1,23 @@
+/* #app {
+    /* display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px); 
+*/
+
+/* #app>div {
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+
+.squareGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 4rem);
+    align-content: center;
+    text-align: center;
+}
+.cell {
+    padding: 15px;
+}

@@ -20,4 +20,6 @@
 }
 .cell {
     padding: 15px;
+    border: solid; 
+    border-color: green;  
 }

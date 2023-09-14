@@ -7,7 +7,7 @@ function updateView(){
 function drawCell() {
     let cell = '<div class="squareGrid">';
     for (let i = 0; i<9; i++) {
-        cell += `<div class="cell"; style="border: solid; border-color: green;  ">${i}</div>`;
+        cell += `<div class="cell" onclick="clickMe(${i})">${i}</div>`;
         console.log(i);
     }
     cell += '</div>';

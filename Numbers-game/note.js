@@ -2,9 +2,9 @@ for (let i=0; i<9; i++) {
   console.log(i);
 }
 
-if () {
+if (true === true) {
   console.log('TRUE')
-} else if () {
+} else if (true === true) {
   console.log('OTHER TRUE')
 } else {
   console.log('FALSE')

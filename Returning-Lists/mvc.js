@@ -4,19 +4,30 @@
 
 
 // model
-let numbers = [100]
+let numbers = [100];
+let myAryNumber = [1, 2];
+let myObjNumber = {};
+let combinedPower = 0;
+
 // view
 function updateView(){
  for(let i = 0; i < numbers.length; i++){
     const numberList = numbers[i]
+
+
+    
     document.getElementById('app').innerHTML += /*HTML*/ `
     <li>
-    ${numberList}
-    <button onclick="pushNumbers()">Push</button>
-    <button onclick="addHundred()">Push</button>
+    ${numberList} </br>
+    ${myAryNumber}</br>
+    
+    <button onclick="pushNumbers()" style="padding: 10px; color: blue;">pushNumbers</button></br>
+    <button onclick="addHundred()" style="padding: 10px; color: goldenrod;">addHundred</button></br>
+    <button onclick="printNumberAry()" style="padding: 10px; color: green;">printNumberAry</button>
+
     </li>
     `
-  
+
     
  }
 }
@@ -37,7 +48,17 @@ function pushNumbers(){
 }
 
 function addHundred(){
-    let firstIndex = numbers[0]
-    firstIndex + 7;
+    let firstIndex = numbers[0];
+
     console.log(firstIndex);
+    updateView();
+}
+
+function printNumberAry(){
+    for (let i=0; i<9; i++) {
+       myAryNumber;
+        updateView();
+      }
+    return combinedPower;
+
 }

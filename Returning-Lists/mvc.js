@@ -24,10 +24,10 @@ function updateView(){
     <button onclick="pushNumbers()" style="padding: 10px; color: blue;">pushNumbers</button></br>
     <button onclick="addHundred()" style="padding: 10px; color: goldenrod;">addHundred</button></br>
     <button onclick="printNumberAry()" style="padding: 10px; color: green;">printNumberAry</button>
-
+    
     </li>
     `
-
+    
     
  }
 }

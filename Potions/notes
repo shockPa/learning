@@ -1,0 +1,70 @@
+To edit a canvas variable in JavaScript with a button, you can use the following approach:
+
+1. Create a button element in your HTML code.
+2. Attach an event listener to the button's `click` event.
+3. Inside the event listener, modify the desired variable.
+
+Here's an example of how you can achieve this using pure HTML and JavaScript:
+
+```html
+<form name="form1">
+  <button id="myButton">Edit Variable</button>
+</form>
+
+<script type="text/javascript">
+  var myVariable = "initial value";
+
+  document.getElementById("myButton").addEventListener("click", function() {
+    myVariable = "new value";
+    console.log("Variable updated:", myVariable);
+  });
+</script>
+```
+
+In this example, we create a button with the ID `myButton`. When the button is clicked, the event listener function is executed, and it updates the `myVariable` value to `"new value"`. You can replace `"new value"` with any desired value or modify other variables as needed.
+
+Remember to replace `console.log` with your desired logic or actions.
+
+Please note that this example assumes you have an existing canvas element in your HTML code. If you need further assistance or have specific requirements, please let me know.
+
+
+---------------------------------------
+CANVAS ELEMENT TO INCREASE IN COLOR
+----------------------------------------
+
+To make a canvas element increase in color when you click a button, you can use JavaScript to modify the fill style of the canvas shape. Here's an example of how you can achieve this:
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid black;"></canvas>
+    <button onclick="increaseColor()">Increase Color</button>
+
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      var colorValue = 0;
+
+      function increaseColor() {
+        colorValue += 10;
+        ctx.fillStyle = "rgb(" + colorValue + ", " + colorValue + ", " + colorValue + ")";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+    </script>
+  </body>
+</html>
+```
+
+In this example, we have a canvas element with an initial fill style of black. When you click the "Increase Color" button, the `increaseColor()` function is called. This function increases the `colorValue` variable by 10 and updates the fill style of the canvas using the `fillStyle` property and `fillRect()` method.
+
+The `fillStyle` property accepts a string value representing a color in various formats such as RGB, RGBA, hexadecimal, or named colors. In this case, we are using the RGB format to dynamically change the grayscale value of the fill color.
+
+Feel free to modify the code according to your specific requirements. Let me know if you need further assistance!
+
+Kilde: Samtale med Bing, 29.9.2023
+(1) How to change fill color of html5 canvas on click event?. https://stackoverflow.com/questions/32174434/how-to-change-fill-color-of-html5-canvas-on-click-event.
+(2) Change color and text of button when clicked. https://powerusers.microsoft.com/t5/Building-Power-Apps/Change-color-and-text-of-button-when-clicked/td-p/365503.
+(3) Change a Button's color onClick using JavaScript | bobbyhadz. https://bobbyhadz.com/blog/javascript-change-button-color-onclick.
+(4) How do I add a simple onClick event handler to a canvas element?. https://stackoverflow.com/questions/9880279/how-do-i-add-a-simple-onclick-event-handler-to-a-canvas-element.
+(5) undefined. http://jsfiddle.net/shafeequemat/sorp8jtv/.

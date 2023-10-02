@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <div id="content" class="box">
+        <h2>Items</h2>
+        <ul id="list"></ul>
+        <input id="titleInput" type="text" placeholder="Item Title">
+        <input id="descriptionInput" type="text" placeholder="Item Description">
+        <button id="addButton">Add Item</button>
+    </div>
+
+    <script>
+        // Model
+
+        let model = {
+            data: [],
+            addData: function(item) {
+                this.data.push(item);
+            },
+            removeData: function(item) {
+                let index = this.data.indexOf(item);
+                if (index > -1) {
+                    this.data.splice(index, 1);
+                }
+            },
+            getData: function() {
+                return this.data;
+            }
+        };
+
+        // View
+        let view = {
+            render: function(data) {
+                let list = document.getElementById('list');
+                list.innerHTML = '';
+                for(let i = 0; i < data.length; i++) {
+                    let item = data[i];
+
+                    let li = document.createElement('li');
+                    li.className = 'item';
+                    li.textContent = item.title;
+
+                    // Assign a color to the item
+                    li.style.color = 'hsl(' + (i * 360 / data.length) + ', 100%, 50%)';
+
+                    // Add a description
+                    let description = document.createElement('p');
+                    description.textContent = item.description;
+                    li.appendChild(description);
+
+                    let button = document.createElement('button');
+                    button.textContent = 'Remove';
+                    button.addEventListener('click', () => {
+                        controller.removeItem(item);
+                    });
+
+                    li.appendChild(button);
+                    list.appendChild(li);
+                }
+            }
+        };
+
+        // Controller
+        let controller = {
+            addItem: function(title, description) {
+                model.addData({title: title, description: description});
+                view.render(model.getData());
+            },
+            removeItem: function(item) {
+                model.removeData(item);
+                view.render(model.getData());
+            },
+            setupButton: function() {
+                let button = document.getElementById('addButton');
+                button.addEventListener('click', () => {
+                    let titleInput = document.getElementById('titleInput');
+                    let descriptionInput = document.getElementById('descriptionInput');
+                    
+                    if(titleInput.value && descriptionInput.value){
+                        this.addItem(titleInput.value, descriptionInput.value);
+                        titleInput.value = '';
+                        descriptionInput.value = '';
+                    }
+                });
+            }
+        };
+
+    
+
+// Usage
+controller.setupButton();
+    </script>
+</body>
+</html>

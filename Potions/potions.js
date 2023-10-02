@@ -10,28 +10,41 @@ let mixedIngredients = [''];
 
 let mixedPotions = [''];
 
-let colorValue = 0;
-const ctx = canvas.getContext("2d");
 
 // view
-updateView();
+view.init();
+var model = {
+    color: 'white'
+};
 
-function draw() {
-    document.getElementById("myCanvas");
-    
-    
+// View
+var view = {
+    canvas: document.getElementById('myCanvas'),
+    button: document.getElementById('myButton'),
+    init: function() {
+        this.button.addEventListener('click', function() {
+            controller.changeColor();
+        });
+        this.render();
+    },
+    render: function() {
+        var context = this.canvas.getContext('2d');
+        context.fillStyle = model.color;
+        context.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
- function changeColor() {
-        colorValue += 10;
-        ctx.fillStyle = "rgb(" + colorValue + ", " + colorValue + ", " + colorValue + ")";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-    draw();
+};
+
+// Controller
+var controller = {
+    changeColor: function() {
+        model.color = model.color === 'white' ? 'black' : 'white';
+        view.render();
     }
-
-
-
+};
 // controller
 
+// document.body.style.backgroundColor = 'green';
+// document.body.style.backgroundColor = ${color}
 
 // ctx.fillStyle = "rgb(200, 0, 0)";
     //   ctx.fillRect(10, 10, 50, 50);

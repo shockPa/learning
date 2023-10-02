@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="myCanvas1" width="120" height="120"></canvas>
+    <button id="myButton1">x</button>
+    <canvas id="myCanvas2" width="120" height="120"></canvas>
+    <button id="myButton2">x2</button>
+    <script>
+var canvas1 = document.getElementById('myCanvas1');
+var button1 = document.getElementById('myButton1');
+var canvas2 = document.getElementById('myCanvas2');
+var button2 = document.getElementById('myButton2');
+
+// We also get the context of the canvas, which is what we'll use to draw on it
+var context1 = canvas1.getContext('2d');
+var context2 = canvas2.getContext('2d');
+
+// We start with a color of 'white' for both canvases
+var color1 = 'blue';
+var color2 = 'yellow';
+
+// These functions will change the color between white and black
+function changeColor1() {
+    if (color1 === 'blue') {
+        color1 = 'violet';
+    } else {
+        color1 = 'blue';
+    }
+    draw(canvas1, context1, color1);
+}
+
+function changeColor2() {
+    if (color2 === 'yellow') {
+        color2 = 'aqua';
+    } else {
+        color2 = 'yellow';
+    }
+    draw(canvas2, context2, color2);
+}
+
+// This function will draw a rectangle on the given canvas using the given color
+function draw(canvas, context, color) {
+    context.fillStyle = color;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+// We add event listeners to our buttons so that when they're clicked, we call the appropriate changeColor function
+button1.addEventListener('click', changeColor1);
+button2.addEventListener('click', changeColor2);
+
+// Finally, we call draw once at the start for each canvas to ensure they have a color
+draw(canvas1, context1, color1);
+draw(canvas2, context2, color2);
+</script>
+</body>
+</html>

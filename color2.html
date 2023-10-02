@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas1" width="120" height="120"></canvas>
+    <button id="myButton1">x</button>
+    <canvas id="myCanvas2" width="120" height="120"></canvas>
+    <button id="myButton2">x2</button>
+
+
+
+    <script>
+    // Model
+var model = {
+    color1: 'blue',
+    color2: 'yellow',
+    changeColor: function(color) {
+        return color === 'blue' ? 'black' : 'blue';
+    }
+};
+
+// View
+var view = {
+    canvas1: document.getElementById('myCanvas1'),
+    canvas2: document.getElementById('myCanvas2'),
+    button1: document.getElementById('myButton1'),
+    button2: document.getElementById('myButton2'),
+    init: function() {
+        this.button1.addEventListener('click', function() {
+            controller.changeColor1();
+        });
+        this.button2.addEventListener('click', function() {
+            controller.changeColor2();
+        });
+        this.render();
+    },
+    render: function() {
+        this.draw(this.canvas1, this.canvas1.getContext('2d'), model.color1);
+        this.draw(this.canvas2, this.canvas2.getContext('2d'), model.color2);
+    },
+    draw: function(canvas, context, color) {
+        context.fillStyle = color;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+    }
+};
+
+// Controller
+var controller = {
+    changeColor1: function() {
+        model.color1 = model.changeColor(model.color1);
+        view.render();
+    },
+    changeColor2: function() {
+        model.color2 = model.changeColor(model.color2);
+        view.render();
+    }
+};
+
+// Initialize the view
+view.init();
+</script>
+</body>
+</html>

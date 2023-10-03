@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .butt {
+            width: 300px;
+            height: 35px;
+            background-color:#F64D01;
+        }
+        .butt:active {
+            background-color:darkturquoise
+        }
+    
+       .program {
+        grid: flex;
+        background-color:#21EACC;
+       width: 250px;
+       }
+       
+       .squareGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 5rem);
+    align-content: center;
+    text-align: center;
+}
+.cell {
+    padding: 15px;
+    border: solid; 
+    border-color:#21EACC;  
+}
+.grouping {
+    display: flex;
+}
+.code {
+    background-color: #F64D01;
+    width: 300px;
+    font-weight: bold;
+    font-size: 40px;
+}
+    </style>
+</head>
+<body>
+    <span class="grouping">
+    <div id="app"></div>
+
+    <div class="program">function increaseColor()
+        colorValue += 10;
+        
+        </div>
+    <span class="buttonGroup">
+    <button class="butt">Move up</button></br>
+    <button class="butt">Move down</button></br>
+    <button class="butt">Rotate Left</button></br>
+    <button class="butt">Rotate Right</button></br>
+
+</span>
+</span>
+    <div>Ønsker du å vite mer? Meld deg på nyhetsbrevet vårt!</div>
+    
+</body>
+
+<script>
+    updateView();
+    function updateView(){
+    let html = "";
+    html += drawCell();
+    document.getElementById('app').innerHTML = html;
+}
+    function drawCell() {
+    let cell = '<div class="squareGrid">';
+    for (let i = 0; i<25; i++) {
+        cell += `<div class="cell">${i}</div>`;
+    }
+    cell += '</div>';
+    return cell;
+}
+
+</script>
+</html>

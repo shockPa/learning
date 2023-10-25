@@ -41,6 +41,29 @@
     font-weight: bold;
     font-size: 40px;
 }
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
     </style>
 </head>
 <body>
@@ -51,16 +74,19 @@
         colorValue += 10;
         
         </div>
-    <span class="buttonGroup">
+    <span class="buttonGroup" class="tooltip">
     <button class="butt">Move up</button></br>
+    
     <button class="butt">Move down</button></br>
     <button class="butt">Rotate Left</button></br>
     <button class="butt">Rotate Right</button></br>
 
 </span>
 </span>
-    <div>Ønsker du å vite mer? Meld deg på nyhetsbrevet vårt!</div>
-    
+    <div class="tooltip">Ønsker du å vite mer? Meld deg på nyhetsbrevet vårt!
+    <span class="tooltiptext">Send en mail!</span></div>
+
+
 </body>
 
 <script>
